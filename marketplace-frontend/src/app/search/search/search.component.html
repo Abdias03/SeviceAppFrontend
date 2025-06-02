@@ -1,0 +1,23 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="search-form">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Categoría</mat-label>
+    <mat-select formControlName="categoria">
+      <mat-option value="educación">Educación</mat-option>
+      <mat-option value="salud">Salud</mat-option>
+      <mat-option value="hogar">Hogar</mat-option>
+    </mat-select>
+    <mat-error *ngIf="searchForm.get('categoria')?.hasError('required')">
+      La categoría es obligatoria
+    </mat-error>
+  </mat-form-field>
+
+  <div class="location-container">
+    <mat-spinner *ngIf="loadingLocation" diameter="30"></mat-spinner>
+    <div *ngIf="locationError" class="error">{{ locationError }}</div>
+  </div>
+
+  <button mat-raised-button color="primary" type="submit"
+          [disabled]="searchForm.invalid || loadingLocation">
+    Buscar
+  </button>
+</form>

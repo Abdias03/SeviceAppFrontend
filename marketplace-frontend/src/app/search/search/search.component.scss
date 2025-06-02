@@ -1,0 +1,15 @@
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .full-width { width: 100%; }
+
+  .location-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .error { color: red; }
+}
