@@ -1,4 +1,11 @@
+
 <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="search-form">
+  <div class="auth-buttons">
+  <button mat-stroked-button color="accent" routerLink="/auth/login">
+    Iniciar Sesión
+  </button>
+</div>
+
   <mat-form-field appearance="outline" class="full-width">
     <mat-label>Categoría</mat-label>
     <mat-select formControlName="categoria">

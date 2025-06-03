@@ -57,3 +57,29 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+--------------- Arquitectura del Frontend – Marketplace de Servicios -----------------------
+
+
+src/app/
+│
+├── core/               # Servicios generales y utilidades (interceptores, auth, guards)
+│   ├── auth/           # Manejo de autenticación y token
+│   ├── services/       # Servicios globales (API, geolocalización, etc.)
+│   ├── models/         # Interfaces y enums (Usuario, Servicio, etc.)
+│   └── interceptors/   # Interceptor para JWT
+│
+├── shared/             # Componentes reutilizables (navbar, footer, botones, etc.)
+│
+├── features/           
+│   ├── search/         # Módulo de búsqueda de servicios (ya iniciado)
+│   ├── auth/           # Login, registro
+│   ├── dashboard/      # Página principal para proveedores/clientes
+│   ├── profile/        # Perfil de usuario
+│   └── bookings/       # Reservas (para clientes y proveedores)
+│
+├── pages/              # Componentes de páginas de alto nivel (LandingPage, Home, NotFound)
+│
+├── app.component.ts    # Componente raíz
+├── app.config.ts       # Configuración de rutas
+└── app.module.ts       # Módulo principals
