@@ -4,9 +4,16 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'search', pathMatch: 'full' },
-  { path: 'search', loadChildren: () => import('./search/search.module').then(m => m.SearchModule) },
-  { path: 'auth', loadChildren: () => import('./features/auth/auth.routes').then(m => m.authRoutes) }
-  // Removed direct login route as it should be handled by AuthModule
+  {
+    path: 'search',
+    loadComponent: () =>
+      import('./search/search/search.component').then((m) => m.SearchComponent),
+  },
+  {
+    path: 'auth/login',
+    loadComponent: () =>
+      import('./features/auth/login/login.component').then((m) => m.LoginComponent),
+  },
 ];
 
 import { RouterModule } from '@angular/router';

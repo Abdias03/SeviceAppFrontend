@@ -8,11 +8,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule }    from '@angular/material/select';
 import { MatButtonModule }    from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-search',
   standalone: true,
   imports: [
+    RouterLink,
     CommonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
