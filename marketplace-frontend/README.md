@@ -38,11 +38,16 @@ This will compile your project and store the build artifacts in the `dist/` dire
 
 ## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, run:
 
 ```bash
-ng test
+npm test
 ```
+
+## Environment configuration
+
+The base URL for the microservices backend is set in `src/environments/environment.ts`.
+Adjust the `apiUrl` value to match your backend server.
 
 ## Running end-to-end tests
 

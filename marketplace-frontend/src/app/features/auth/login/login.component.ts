@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatError } from '@angular/material/form-field'; // solo si da errores
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../../core/auth/auth.service';
 
 
 @Component({
@@ -22,13 +23,13 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
 
    loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private auth: AuthService) {
     this.loginForm = this.fb.group({
       correo: ['', [Validators.required, Validators.email]],
       contrasena: ['', Validators.required],
@@ -38,8 +39,10 @@ export class LoginComponent {
   onLogin(): void {
     if (this.loginForm.valid) {
       const credenciales = this.loginForm.value;
-      console.log('Enviando login:', credenciales);
-      // Aquí harás la petición HTTP al backend
+      this.auth.login(credenciales).subscribe({
+        next: () => console.log('Usuario autenticado'),
+        error: err => console.error('Error de login', err)
+      });
     }
   }
 }
